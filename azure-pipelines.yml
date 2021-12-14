@@ -1,15 +1,12 @@
-
-pr: ## allows only pull requests to trigger the pipeline
-  branches: ## the following branches will be included
+pr:
+  branches:
       include:
       - '*'
   paths:
      include:
-     ## the following files or folders will be included
      - force-app 
 
 pool:
-  ## a Linux virtual machine will be used
   vmImage: ubuntu-latest
 
 steps:
@@ -18,18 +15,17 @@ steps:
   displayName: "Salesforce sfdx cli installer"
 
 - bash: 
-    touch test.key
+    touch access.key
   displayName: "Temp file for auth url file creation"
 
 - bash:    
-    echo $TEST_SURFF > test.key ##include url to the temp file
+    echo $SF_URL > access.key
   env:
-  ##extraction of env variable
-    TEST_SURFF: $(test)
+    SF_URL: $(SalesforceAuthUrl)
   displayName: "Write url to the temp file"
 
 - bash: 
-    sfdx force:auth:sfdxurl:store -f "test.key" -a org.org
+    sfdx force:auth:sfdxurl:store -f "access.key" -a salesforce.org
   displayName: "Connect to the Salesforce org"
 
 - bash: 
