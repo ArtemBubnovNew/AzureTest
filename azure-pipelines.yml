@@ -7,7 +7,7 @@ pr:
   branches:
       include:
       - master
- paths:
+  paths:
      exclude:
      - config
      - README.md
