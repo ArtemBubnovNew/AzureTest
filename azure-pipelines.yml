@@ -15,5 +15,6 @@ steps:
 - bash: 
     ##echo "this is the version os cli" 
     ##npm sfdx-cli --version
+    npm install sfdx-cli --global
     npm sfdx-cli force:source:deploy -p /force-app
     
