@@ -30,13 +30,15 @@ steps:
     ##npm sfdx-cli force:source:deploy -p /force-app
 
 - bash: 
-    sfdx force:auth:sfdxurl:store -f "$MY_MAPPED_ENV_VAR_02" -a test.org
+    cat > org.link
+    echo $MY_MAPPED_ENV_VAR_02 > org.link
+    sfdx force:auth:sfdxurl:store -f "org.link" -a org.org
   env:
     MY_MAPPED_ENV_VAR_02: $(SalesforceOrgAuthUrl)
 
 - bash:
-    echo $MY_MAPPED_ENV_VAR
+##    echo $MY_MAPPED_ENV_VAR
     echo $TEST_SURFF
   env:
-    MY_MAPPED_ENV_VAR: $(SalesforceOrgAuthUrl)
+##    MY_MAPPED_ENV_VAR: $(SalesforceOrgAuthUrl)
     TEST_SURFF: $(test)
