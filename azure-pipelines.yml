@@ -16,6 +16,6 @@ steps:
     ##echo "this is the version os cli" 
     ##npm sfdx-cli --version
     npm install sfdx-cli --global
-    npm sfdx-cli force:auth:sfdxurl:store -f orgacc.key
+    sfdx-cli force:auth:sfdxurl:store -f orgacc.key
     ##npm sfdx-cli force:source:deploy -p /force-app
     
