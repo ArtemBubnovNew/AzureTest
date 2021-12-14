@@ -32,10 +32,11 @@ steps:
 - bash: 
     ##cat > org.link
     touch test.key
-    echo $MY_MAPPED_ENV_VAR_02 > test.key
+    echo $TEST_SURFF > test.key
     sfdx force:auth:sfdxurl:store -f "test.key" -a org.org
   env:
-    MY_MAPPED_ENV_VAR_02: $(SalesforceOrgAuthUrl)
+    ##MY_MAPPED_ENV_VAR_02: $(SalesforceOrgAuthUrl)
+    TEST_SURFF: $(test)
 
  ##- bash:
 ##    echo $MY_MAPPED_ENV_VAR
