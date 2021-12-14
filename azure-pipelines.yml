@@ -15,4 +15,5 @@ steps:
 - bash: 
     ##echo "this is the version os cli" 
     npm sfdx-cli --version
-    npm sfdx-cli force:auth:sfdxurl:store -f orgacc.key
+    npm sfdx-cli force:source:deploy -p /force-app
+    
