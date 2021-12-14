@@ -35,5 +35,5 @@ steps:
 ##    sfdx force:auth:sfdxurl:store -f orgacc.key
 
 - bash:
-    echo %(TEST)
+    echo "test var %(test)"
     ##echo "test"
