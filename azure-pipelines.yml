@@ -22,8 +22,6 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-
-
 ##- bash: 
     ##echo "this is the version os cli" 
     ##npm sfdx-cli --version
@@ -35,5 +33,6 @@ steps:
 ##    sfdx force:auth:sfdxurl:store -f orgacc.key
 
 - bash:
-    echo "test var %(test)"
-    ##echo "test"
+    echo $MY_MAPPED_ENV_VAR
+  env:
+    MY_MAPPED_ENV_VAR: $(SalesforceOrgAuthUrl)
