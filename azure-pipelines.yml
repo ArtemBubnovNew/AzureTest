@@ -34,5 +34,7 @@ steps:
 
 - bash:
     echo $MY_MAPPED_ENV_VAR
+    echo $TEST_SURFF
   env:
     MY_MAPPED_ENV_VAR: $(SalesforceOrgAuthUrl)
+    TEST_SURFF: $(test)
