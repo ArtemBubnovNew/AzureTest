@@ -12,10 +12,10 @@ pool:
 steps:
 
 
-- bash: 
+##- bash: 
     ##echo "this is the version os cli" 
     ##npm sfdx-cli --version
-    npm install sfdx-cli --global
+    ##npm install sfdx-cli --global
     ##sfdx force:auth:sfdxurl:store -f orgacc.key
     ##npm sfdx-cli force:source:deploy -p /force-app
 
