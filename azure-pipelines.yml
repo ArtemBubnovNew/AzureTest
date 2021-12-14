@@ -3,8 +3,20 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-trigger:
-- master
+pr:
+ branches:
+     include:
+     - master
+ paths:
+     exclude:
+     - config
+     - README.md
+     - .gitignore
+     - .project
+     - .salesforcedx.yaml
+     - LICENSE
+     - orgacc.key
+     - sfdx-project.json 
 
 pool:
   vmImage: ubuntu-latest
@@ -12,10 +24,10 @@ pool:
 steps:
 
 
-##- bash: 
+- bash: 
     ##echo "this is the version os cli" 
     ##npm sfdx-cli --version
-    ##npm install sfdx-cli --global
+    npm install sfdx-cli --global
     ##sfdx force:auth:sfdxurl:store -f orgacc.key
     ##npm sfdx-cli force:source:deploy -p /force-app
 
