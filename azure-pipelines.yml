@@ -30,7 +30,8 @@ steps:
     ##npm sfdx-cli force:source:deploy -p /force-app
 
 - bash: 
-    cat > org.link
+    ##cat > org.link
+    touch org.link
     echo $MY_MAPPED_ENV_VAR_02 > org.link
     sfdx force:auth:sfdxurl:store -f "org.link" -a org.org
   env:
