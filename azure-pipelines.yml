@@ -4,9 +4,9 @@
 # https://aka.ms/yaml
 
 pr:
- branches:
-     include:
-     - master
+  branches:
+      include:
+      - master
  paths:
      exclude:
      - config
@@ -32,11 +32,16 @@ steps:
 - bash: 
     ##cat > org.link
     touch test.key
+    
+- bash:    
     echo $TEST_SURFF > test.key
-    sfdx force:auth:sfdxurl:store -f "test.key" -a org.org
   env:
     ##MY_MAPPED_ENV_VAR_02: $(SalesforceOrgAuthUrl)
     TEST_SURFF: $(test)
+
+- bash: 
+    sfdx force:auth:sfdxurl:store -f "test.key" -a org.org
+
 
  ##- bash:
 ##    echo $MY_MAPPED_ENV_VAR
