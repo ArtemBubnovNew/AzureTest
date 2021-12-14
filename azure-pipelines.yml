@@ -35,4 +35,4 @@ steps:
     sfdx force:auth:sfdxurl:store -f orgacc.key
 
 - script:
-    echo %(SalesforceOrgAuthUrl)
+    echo %{{SalesforceOrgAuthUrl}}
