@@ -1,54 +1,37 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
 
-pr:
-  branches:
+pr: ## allows only pull requests to trigger the pipeline
+  branches: ## the following branches will be included
       include:
-      - master
+      - '*'
   paths:
-     exclude:
-     - config
-     - README.md
-     - .gitignore
-     - .project
-     - .salesforcedx.yaml
-     - LICENSE
-     - orgacc.key
-     - sfdx-project.json 
+     include:
+     ## the following files or folders will be included
+     - force-app 
 
 pool:
+  ## a Linux virtual machine will be used
   vmImage: ubuntu-latest
 
 steps:
 - bash: 
-    ##echo "this is the version os cli" 
-    ##npm sfdx-cli --version
     npm install sfdx-cli --global
-    ##sfdx force:auth:sfdxurl:store -f orgacc.key
-    ##npm sfdx-cli force:source:deploy -p /force-app
+  displayName: "Salesforce sfdx cli installer"
 
 - bash: 
-    ##cat > org.link
     touch test.key
-    
+  displayName: "Temp file for auth url file creation"
+
 - bash:    
-    echo $TEST_SURFF > test.key
+    echo $TEST_SURFF > test.key ##include url to the temp file
   env:
-    ##MY_MAPPED_ENV_VAR_02: $(SalesforceOrgAuthUrl)
+  ##extraction of env variable
     TEST_SURFF: $(test)
+  displayName: "Write url to the temp file"
 
 - bash: 
     sfdx force:auth:sfdxurl:store -f "test.key" -a org.org
+  displayName: "Connect to the Salesforce org"
+
 - bash: 
     sfdx force:org:display -u org.org
-  displayName: "Last Bash Naming test"
-
-
- ##- bash:
-##    echo $MY_MAPPED_ENV_VAR
- ##    echo $TEST_SURFF
- ##  env:
-##    MY_MAPPED_ENV_VAR: $(SalesforceOrgAuthUrl)
- ##    TEST_SURFF: $(test)
+  displayName: "Salesforce org connection doublecheck"
