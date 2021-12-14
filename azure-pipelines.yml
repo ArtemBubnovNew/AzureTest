@@ -29,5 +29,5 @@ steps:
   displayName: "Connect to the Salesforce org"
 
 - bash: 
-    sfdx force:org:display -u org.org
+    sfdx force:org:display -u salesforce.org
   displayName: "Salesforce org connection doublecheck"
