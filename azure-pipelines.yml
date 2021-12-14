@@ -41,6 +41,9 @@ steps:
 
 - bash: 
     sfdx force:auth:sfdxurl:store -f "test.key" -a org.org
+- bash: 
+    sfdx force:org:display -u org.org
+  displayName: "Last Bash Naming test"
 
 
  ##- bash:
