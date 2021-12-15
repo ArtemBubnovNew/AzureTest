@@ -13,7 +13,7 @@ pool:
   vmImage: ubuntu-latest
   
 steps:
-
+- task: UseNode@1
 # - taks: Npm@1
 #     inputs: 
 #       command: 'install'
@@ -21,10 +21,10 @@ steps:
 
 - task: Npm@1
   inputs:
-    command: 'install'
+#     command: 'install'
     # customCommand: install sfdx-cli --global
-    # command: custom
-    # customCommand: install sfdx-cli --global
+    command: custom
+    customCommand: install sfdx-cli --global
 
 # - bash: 
 #     npm install sfdx-cli --global
