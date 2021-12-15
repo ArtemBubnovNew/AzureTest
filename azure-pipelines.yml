@@ -34,11 +34,18 @@ steps:
     touch access.key
   displayName: "Temp file for auth url file creation"
 
+# - bash:    
+#     echo $SF_URL > access.key
+#   env:
+#     SF_URL: $(SalesforceAuthUrl)
+#   displayName: "Write url to the temp file"
+
 - bash:    
     echo $SF_URL > access.key
   env:
-    SF_URL: $(SalesforceAuthUrl)
+    SF_URL: $(SalesforceOrgAuthUrl)
   displayName: "Write url to the temp file"
+
 
 - bash: 
     sfdx force:auth:sfdxurl:store -f "access.key" -a salesforce.org
