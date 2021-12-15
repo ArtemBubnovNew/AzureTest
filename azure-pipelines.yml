@@ -9,7 +9,7 @@ pr:
 pool:
   ##vmImage: ubuntu-latest
   ##name: default
-  name: Azure Pipelines
+  name: Default
   vmImage: ubuntu-latest
   
 steps:
