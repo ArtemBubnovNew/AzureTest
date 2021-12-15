@@ -13,11 +13,12 @@ pool:
   vmImage: ubuntu-latest
   
 steps:
-
 - task: Npm@1
+  inputs:
+    command: 'install'
     # command: custom
     # customCommand: install sfdx-cli --global
-    
+
 - bash: 
     npm install sfdx-cli --global
   displayName: "Salesforce sfdx cli installer"
