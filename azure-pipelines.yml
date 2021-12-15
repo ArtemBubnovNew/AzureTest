@@ -9,20 +9,20 @@ pr:
 pool:
   ##vmImage: ubuntu-latest
   ##name: default
-  name: default
+  name: Azure Pipelines
   vmImage: ubuntu-latest
   
 steps:
-# - task: Npm@1
-#   inputs:
-#     command: 'custom'
-#     customCommand: npm install sfdx-cli --global
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    customCommand: npm install sfdx-cli --global
     # command: custom
     # customCommand: install sfdx-cli --global
 
-- bash: 
-    npm install sfdx-cli --global
-  displayName: "Salesforce sfdx cli installer"
+# - bash: 
+#     npm install sfdx-cli --global
+#   displayName: "Salesforce sfdx cli installer"
 
 - bash: 
     touch access.key
