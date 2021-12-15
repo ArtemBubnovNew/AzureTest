@@ -15,7 +15,8 @@ pool:
 steps:
 - task: Npm@1
   inputs:
-    command: 'install'
+    command: 'custom'
+    customCommand: install sfdx-cli --global
     # command: custom
     # customCommand: install sfdx-cli --global
 
