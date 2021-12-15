@@ -31,3 +31,9 @@ steps:
 - bash: 
     sfdx force:org:display -u salesforce.org
   displayName: "Salesforce org connection doublecheck"
+
+- bash: 
+    echo $TEST
+  env:
+    TEST: $(test)
+  displayName: "Variables test" 
