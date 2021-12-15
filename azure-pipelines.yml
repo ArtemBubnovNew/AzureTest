@@ -19,16 +19,16 @@ steps:
 #       command: 'install'
 
 
-# - task: Npm@1
-#   inputs:
+- task: Npm@1
+  inputs:
 # #     command: 'install'
 #     # customCommand: install sfdx-cli --global
-#     command: custom
-#     customCommand: install sfdx-cli --global
+    command: custom
+    customCommand: install sfdx-cli --global
 
-- bash: 
-    npm install sfdx-cli --global
-  displayName: "Salesforce sfdx cli installer"
+# - bash: 
+#     npm install sfdx-cli --global
+#   displayName: "Salesforce sfdx cli installer"
 
 - bash: 
     touch access.key
