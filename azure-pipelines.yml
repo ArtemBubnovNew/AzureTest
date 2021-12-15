@@ -20,9 +20,9 @@ steps:
     # command: custom
     # customCommand: install sfdx-cli --global
 
-- bash: 
-    npm install sfdx-cli --global
-  displayName: "Salesforce sfdx cli installer"
+# - bash: 
+#     npm install sfdx-cli --global
+#   displayName: "Salesforce sfdx cli installer"
 
 - bash: 
     touch access.key
