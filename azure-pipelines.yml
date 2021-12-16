@@ -61,6 +61,6 @@ steps:
     TEST: $(test)
   displayName: "Variables test" 
 
-- bash:
-    sfdx force:source:deploy -p force-app -l RunLocalTests -w 60 -u salesforce.org -с
-  displayName: "New command test"
+# - bash:
+#     sfdx force:source:deploy -p force-app -l RunLocalTests -w 60 -u salesforce.org -с
+#   displayName: "New command test"
