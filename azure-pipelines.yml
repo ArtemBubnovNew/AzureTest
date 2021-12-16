@@ -1,3 +1,11 @@
+trigger:
+  branches:
+      include:
+      - '*'
+  paths:
+     include:
+     - force-app 
+
 pr:
   branches:
       include:
