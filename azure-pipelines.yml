@@ -6,13 +6,13 @@ trigger:
      include:
      - force-app 
 
-pr:
-  branches:
-      include:
-      - '*'
-  paths:
-     include:
-     - force-app 
+# pr:
+#   branches:
+#       include:
+#       - '*'
+#   paths:
+#      include:
+#      - force-app 
 
 pool:
   ##vmImage: ubuntu-latest
