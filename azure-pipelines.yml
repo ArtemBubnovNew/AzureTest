@@ -103,5 +103,5 @@ steps:
 ## third org connection------------------------------------------------------------------------------------
 
 - bash:
-    sfdx force:source:deploy -p force-app -l RunLocalTests -w 60 -u salesforce.org -с
+    sfdx force:source:deploy -p force-app -l RunLocalTests -w 60 -u salesforce.org -c
   displayName: "New command test"
