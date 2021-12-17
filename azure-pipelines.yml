@@ -102,14 +102,6 @@ steps:
   displayName: "Salesforce org connection doublecheck  __ org 3"
 ## third org connection------------------------------------------------------------------------------------
 
-
-
-
-
-
-
-
-
-# - bash:
-#     sfdx force:source:deploy -p force-app -l RunLocalTests -w 60 -u salesforce.org -с
-#   displayName: "New command test"
+- bash:
+    sfdx force:source:deploy -p force-app -l RunLocalTests -w 60 -u salesforce.org -с
+  displayName: "New command test"
