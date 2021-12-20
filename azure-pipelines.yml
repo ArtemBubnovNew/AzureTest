@@ -1,107 +1,107 @@
-trigger:
-  branches:
-      include:
-      - '*'
-  paths:
-     include:
-     - force-app/*
-
-# pr:
+# trigger:
 #   branches:
 #       include:
 #       - '*'
 #   paths:
 #      include:
-#      - force-app 
+#      - force-app/*
 
-pool:
-  ##vmImage: ubuntu-latest
-  # name: default
-  name: Azure Pipelines
-  vmImage: ubuntu-latest
+# # pr:
+# #   branches:
+# #       include:
+# #       - '*'
+# #   paths:
+# #      include:
+# #      - force-app 
+
+# pool:
+#   ##vmImage: ubuntu-latest
+#   # name: default
+#   name: Azure Pipelines
+#   vmImage: ubuntu-latest
   
-steps:
-- task: UseNode@1
-# - taks: Npm@1
-#     inputs: 
-#       command: 'install'
+# steps:
+# - task: UseNode@1
+# # - taks: Npm@1
+# #     inputs: 
+# #       command: 'install'
 
 
-- task: Npm@1
-  inputs:
-# #     command: 'install'
-#     # customCommand: install sfdx-cli --global
-    command: custom
-    customCommand: install sfdx-cli --global
+# - task: Npm@1
+#   inputs:
+# # #     command: 'install'
+# #     # customCommand: install sfdx-cli --global
+#     command: custom
+#     customCommand: install sfdx-cli --global
+
+# # - bash: 
+# #     npm install sfdx-cli --global
+# #   displayName: "Salesforce sfdx cli installer"
+
+
+# ## first org connection------------------------------------------------------------------------------------
+# - bash: 
+#     touch access.key
+#   displayName: "Temp file for auth url file creation  __ org 1"
+
+# - bash:    
+#     echo $SF_URL > access.key
+#   env:
+#     SF_URL: $(SalesforceOrgAuthUrl)
+#   displayName: "Write url to the temp file  __ org 1"
+
 
 # - bash: 
-#     npm install sfdx-cli --global
-#   displayName: "Salesforce sfdx cli installer"
+#     sfdx force:auth:sfdxurl:store -f "access.key" -a salesforce.org
+#   displayName: "Connect to the Salesforce  __ org 1"
+
+# - bash: 
+#     sfdx force:org:display -u salesforce.org
+#   displayName: "Salesforce org connection doublecheck  __ org 1"
+# ## first org connection------------------------------------------------------------------------------------
+
+# ## second org connection------------------------------------------------------------------------------------
+# - bash: 
+#     touch access_02.key
+#   displayName: "Temp file for auth url file creation  __ org 2"
+
+# - bash:    
+#     echo $SF_URL_02 > access_02.key
+#   env:
+#     SF_URL_02: $(SalesforceOrgAuthUrl_02)
+#   displayName: "Write url to the temp file  __ org 2"
 
 
-## first org connection------------------------------------------------------------------------------------
-- bash: 
-    touch access.key
-  displayName: "Temp file for auth url file creation  __ org 1"
+# - bash: 
+#     sfdx force:auth:sfdxurl:store -f "access_02.key" -a salesforce_02.org
+#   displayName: "Connect to the Salesforce  __ org 2"
 
-- bash:    
-    echo $SF_URL > access.key
-  env:
-    SF_URL: $(SalesforceOrgAuthUrl)
-  displayName: "Write url to the temp file  __ org 1"
+# - bash: 
+#     sfdx force:org:display -u salesforce_02.org
+#   displayName: "Salesforce org connection doublecheck  __ org 2"
+# ## second org connection------------------------------------------------------------------------------------
 
+# ## third org connection------------------------------------------------------------------------------------
+# - bash: 
+#     touch access_03.key
+#   displayName: "Temp file for auth url file creation  __ org 3"
 
-- bash: 
-    sfdx force:auth:sfdxurl:store -f "access.key" -a salesforce.org
-  displayName: "Connect to the Salesforce  __ org 1"
-
-- bash: 
-    sfdx force:org:display -u salesforce.org
-  displayName: "Salesforce org connection doublecheck  __ org 1"
-## first org connection------------------------------------------------------------------------------------
-
-## second org connection------------------------------------------------------------------------------------
-- bash: 
-    touch access_02.key
-  displayName: "Temp file for auth url file creation  __ org 2"
-
-- bash:    
-    echo $SF_URL_02 > access_02.key
-  env:
-    SF_URL_02: $(SalesforceOrgAuthUrl_02)
-  displayName: "Write url to the temp file  __ org 2"
+# - bash:    
+#     echo $SF_URL_03 > access_03.key
+#   env:
+#     SF_URL_03: $(SalesforceOrgAuthUrl_03)
+#   displayName: "Write url to the temp file  __ org 3"
 
 
-- bash: 
-    sfdx force:auth:sfdxurl:store -f "access_02.key" -a salesforce_02.org
-  displayName: "Connect to the Salesforce  __ org 2"
+# - bash: 
+#     sfdx force:auth:sfdxurl:store -f "access_03.key" -a salesforce_03.org
+#   displayName: "Connect to the Salesforce  __ org 3"
 
-- bash: 
-    sfdx force:org:display -u salesforce_02.org
-  displayName: "Salesforce org connection doublecheck  __ org 2"
-## second org connection------------------------------------------------------------------------------------
+# - bash: 
+#     sfdx force:org:display -u salesforce_03.org
+#   displayName: "Salesforce org connection doublecheck  __ org 3"
+# ## third org connection------------------------------------------------------------------------------------
 
-## third org connection------------------------------------------------------------------------------------
-- bash: 
-    touch access_03.key
-  displayName: "Temp file for auth url file creation  __ org 3"
-
-- bash:    
-    echo $SF_URL_03 > access_03.key
-  env:
-    SF_URL_03: $(SalesforceOrgAuthUrl_03)
-  displayName: "Write url to the temp file  __ org 3"
-
-
-- bash: 
-    sfdx force:auth:sfdxurl:store -f "access_03.key" -a salesforce_03.org
-  displayName: "Connect to the Salesforce  __ org 3"
-
-- bash: 
-    sfdx force:org:display -u salesforce_03.org
-  displayName: "Salesforce org connection doublecheck  __ org 3"
-## third org connection------------------------------------------------------------------------------------
-
-- bash:
-    sfdx force:source:deploy -p force-app -l RunLocalTests -w 60 -u salesforce.org -c
-  displayName: "New command test"
+# - bash:
+#     sfdx force:source:deploy -p force-app -l RunLocalTests -w 60 -u salesforce.org -c
+#   displayName: "New command test"
